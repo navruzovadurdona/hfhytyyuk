@@ -1,0 +1,5 @@
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install django
+django-admin startproject myblog .
+python manage.py startapp blog
