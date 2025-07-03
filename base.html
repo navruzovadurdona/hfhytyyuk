@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Блог</title>
+</head>
+<body>
+  {% if user.is_authenticated %}
+    <p>Привет, {{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></p>
+  {% else %}
+    <p><a href="{% url 'login' %}">Войти</a></p>
+  {% endif %}
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>
