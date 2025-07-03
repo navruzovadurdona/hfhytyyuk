@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <h1>Посты</h1>
+  {% for post in posts %}
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.content|truncatechars:100 }}</p>
+  {% endfor %}
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'post_create' %}">Создать пост</a></p>
+  {% endif %}
+{% endblock %}
